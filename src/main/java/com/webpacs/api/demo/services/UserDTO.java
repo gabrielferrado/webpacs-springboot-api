@@ -1,31 +1,12 @@
-package com.webpacs.api.demo.models;
+package com.webpacs.api.demo.services;
 
-import com.sun.istack.NotNull;
+public class UserDTO {
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
-public class User {
-  @Id
-  @GeneratedValue
   private Long id;
   private String name;
-  @NotNull
-  @Column(unique = true)
   private String email;
-  @NotNull
   private String password;
   private String rememberToken;
-  
-  public User(String name, String email, String password) {
-    this.name = name;
-    this.email = email;
-    this.password = password;
-  }
-  public User() { }
 
   public Long getId() {
     return id;
