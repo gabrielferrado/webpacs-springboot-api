@@ -26,5 +26,4 @@ public class UserServiceTests {
 
     foundUser.ifPresent(u -> assertEquals(u.getId(), user.getId()));
   }
-
 }

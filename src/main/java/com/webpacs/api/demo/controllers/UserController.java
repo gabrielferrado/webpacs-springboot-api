@@ -15,15 +15,6 @@ import java.util.Optional;
 @RestController
 public class UserController {
   @Autowired private UserService userService;
-  @Autowired private ModelMapper modelMapper;
-
-  private User convertToEntity(UserDTO userDTO) {
-    return modelMapper.map(userDTO, User.class);
-  }
-
-  private UserDTO convertToDto(User user) {
-    return modelMapper.map(user, UserDTO.class);
-  }
 
   @GetMapping("/user/{id}")
   ResponseEntity<Optional<User>> getUser(@PathVariable String id) {
@@ -34,8 +25,8 @@ public class UserController {
   @ResponseStatus(HttpStatus.CREATED)
   @ResponseBody
   public UserDTO createUser(@RequestBody UserDTO userDto) {
-    User user = convertToEntity(userDto);
+    User user = userService.convertToEntity(userDto);
     User createdUser = userService.createUser(user);
-    return convertToDto(createdUser);
+    return userService.convertToDto(createdUser);
   }
 }

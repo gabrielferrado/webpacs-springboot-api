@@ -12,10 +12,14 @@ public class User {
   @Id
   @GeneratedValue
   private Long id;
+
+  @NotNull
   private String name;
+
   @NotNull
   @Column(unique = true)
   private String email;
+
   @NotNull
   private String password;
   private String rememberToken;

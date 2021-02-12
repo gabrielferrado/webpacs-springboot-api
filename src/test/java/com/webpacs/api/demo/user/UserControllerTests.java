@@ -39,7 +39,7 @@ public class UserControllerTests {
   }
 
   @Test
-  void createAndRetrieveUser() throws Exception {
+  void createUserRequest() throws Exception {
     userDto.setId(1L);
     userDto.setName("Gabriel Ferrari");
     userDto.setEmail("gabriel@email.com");
